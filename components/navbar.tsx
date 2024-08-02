@@ -1,3 +1,4 @@
+"use client"
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -7,6 +8,8 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import { Image } from "@nextui-org/react";
+import React, { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
@@ -27,6 +30,14 @@ import {
 } from "@/components/icons";
 
 export const Navbar = () => {
+  const [userInfo, setUserInfo] = useState(null);
+  fetch(`https://api.github.com/users/guillerhv`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserInfo(data);
+      }).catch((error) => console.error("Error fetching user info:", error));
+    console.log(userInfo)
   const searchInput = (
     <Input
       aria-label="Search"
@@ -53,8 +64,18 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+                {userInfo && (
+            <div>
+              <Image
+              isZoomed
+              width={45}
+              alt={userInfo.name}
+              src={userInfo.avatar_url}
+              />
+              
+            </div>
+          )}
+            <p className="font-bold text-inherit">Guille Rodriguez's Sandbox</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -138,4 +159,6 @@ export const Navbar = () => {
       </NavbarMenu>
     </NextUINavbar>
   );
+
+  
 };
