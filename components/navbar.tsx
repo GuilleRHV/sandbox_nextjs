@@ -29,8 +29,13 @@ import {
   Logo,
 } from "@/components/icons";
 
+interface UserInfo {
+  name: string;
+  avatar_url: string;
+  // Puedes agregar más propiedades aquí según lo que necesites
+}
 export const Navbar = () => {
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   fetch(`https://api.github.com/users/guillerhv`)
       .then((res) => res.json())
       .then((data) => {
