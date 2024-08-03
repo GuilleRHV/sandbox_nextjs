@@ -28,18 +28,18 @@ export default function Githubapi() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-      <div className="w-full flex flex-row flex-wrap gap-4">
+      <div className="w-full gap-8">
         <Input
           isRequired
           type="text"
           label="Usuario"
           placeholder="Introduce usuario de GitHub"
-          className="max-w-xs"
+          className="max-w-xs "
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
-
-        <div className="flex gap-4 items-center">
+        <br></br>
+        <div className=" gap-4 items-center">
           <Button color="success" type="submit">
             Buscar <GithubIcon/>
           </Button>
