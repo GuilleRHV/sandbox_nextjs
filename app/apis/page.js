@@ -14,14 +14,14 @@ export default function Apis() {
             </CardBody>
           </Card>  
         </Tab>
-        <Tab key="music" title="Music">
+        <Tab key="Datos" title="Datos">
           <Card>
             <CardBody>
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </CardBody>
           </Card>  
         </Tab>
-        <Tab key="videos" title="Videos">
+        <Tab key="Lol" title="Lol">
           <Card>
             <CardBody>
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
