@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2'
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
+import {Card, CardBody} from "@nextui-org/react";
 function TicTacToe() {
     const [tablegame, setTable] = useState(Array(9).fill(null));
     const [turn, changeTurn] = useState('⭕');
@@ -56,8 +57,14 @@ function TicTacToe() {
                 </section>
             </div>
             <div className="turns">
-                Turno: {turn.toUpperCase()}
+            <Card>
+                <CardBody>
+                    <p>Turno: {turn.toUpperCase()}</p>
+                </CardBody>
+            </Card>
+                
             </div>
+            
         </main>
     );
 }

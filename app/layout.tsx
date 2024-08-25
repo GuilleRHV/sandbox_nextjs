@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { LateralNavbar } from "@/components/LateralNavbar";
-
+import Provider from "@/components/Provider";
 import { useSession, signIn, signOut } from "next-auth/react";
 export const metadata: Metadata = {
   title: {
@@ -35,6 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <Provider>
     <html suppressHydrationWarning lang="en">
       <head />
       <body
@@ -67,5 +68,6 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
+    </Provider>
   );
 }
