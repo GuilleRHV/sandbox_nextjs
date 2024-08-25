@@ -9,29 +9,7 @@ export const LateralNavbar = () => {
 
   return (
     <>
-      <button
-        onClick={() => setIsVisible(!isVisible)}
-        className={`${!isVisible ? "none": "block"} group relative  overflow-hidden rounded border border-gray-100 bg-gray-200 px-12 py-3 text-sm font-medium text-slate-800 hover:text-violet-600 focus:outline-none focus:ring active:bg-indigo-600 active:text-white`
-  }>
-        <span className="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-violet-600 transition-all duration-200 group-hover:w-full"></span>
-        <span className="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-violet-600 transition-all duration-200 group-hover:h-full"></span>
-        <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-violet-600 transition-all duration-200 group-hover:w-full"></span>
-        <span className="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-violet-600 transition-all duration-200 group-hover:h-full"></span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-          className="w-5 h-5 text-inherit"
-          id="menulateralclose"
-        >
-          <path
-            fillRule="evenodd"
-            d="M6.293 4.293a1 1 0 011.414 0L12 8.586l4.293-4.293a1 1 0 111.414 1.414L13.414 10l4.293 4.293a1 1 0 01-1.414 1.414L12 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L10.586 12 6.293 7.707a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          ></path>
-        </svg>
-      </button>
+      
         <div class="row">
       <aside
         className={`bg-gradient-to-br from-gray-800 to-gray-900 fixed inset-y-0 left-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 ${

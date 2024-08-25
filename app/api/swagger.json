@@ -1,0 +1,33 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Documentation",
+      "version": "1.0.0",
+      "description": "API documentation for my project"
+    },
+    "paths": {
+      "/api/hello": {
+        "get": {
+          "summary": "Returns a greeting",
+          "responses": {
+            "200": {
+              "description": "A successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

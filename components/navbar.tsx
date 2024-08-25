@@ -29,6 +29,7 @@ import {
   Logo,
 } from "@/components/icons";
 
+
 interface UserInfo {
   name: string;
   avatar_url: string;
@@ -120,6 +121,7 @@ export const Navbar = () => {
             Sponsor
           </Button>
         </NavbarItem>
+        
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
