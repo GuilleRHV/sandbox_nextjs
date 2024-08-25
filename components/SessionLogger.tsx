@@ -2,36 +2,26 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { sql } from "@vercel/postgres";
-import { NextResponse } from 'next/server';
+import { createPool} from "@vercel/postgres";
+import pool from '@/app/lib/api/db';
 const SessionLogger = () => {
   const { data: session, status } = useSession();
 
   const insertLogin = async (email: string | null | undefined) => {
     try {
-      await sql`INSERT INTO log_logins (email, timestamp) VALUES (${email}, ${Date.now()});`;
-      console.log("INSERTADO")
-    } catch (error) {
-      console.log("VercelPostgresError - 'missing_connection_string': You did not supply a 'connectionString' and no 'POSTGRES_URL' env var was found.")
-      return NextResponse.json({ error }, { status: 500 });
+      //const conection = db.connect();
       
-    }
-    /*
-    try {
-      console.log("Intentando insertar log para:", email);
-
       
-      const result = await sql`
-        INSERT INTO log_logins (email, timestamp)
-        VALUES (${email}, ${Date.now()})
-        RETURNING *;
-      `;
+      const result = pool.query(`
+        INSERT INTO log_logins (${email}, ${Date.now()})
+        VALUES (${email}, ${Date.now()})';
+      `);
       
       console.log("INSERTADO");
 
     } catch (error) {
       console.error('Error al insertar log:', error);
-    }*/
+    }
   };
 
   useEffect(() => {

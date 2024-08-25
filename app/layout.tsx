@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import { sql } from "@vercel/postgres";
 import { LateralNavbar } from "@/components/LateralNavbar";
 import Provider from "@/components/Provider";
 import SessionLogger from "@/components/SessionLogger";  // Importa el componente
@@ -33,6 +34,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <Provider>
       <html suppressHydrationWarning lang="en">
@@ -44,7 +46,7 @@ export default function RootLayout({
           )}
         >
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <SessionLogger />  {/* Coloca el componente de registro de sesión aquí */}
+            {/*<SessionLogger />*/}  {/* Lo comento por ahora, da problemas */}
             <div className="relative flex flex-col h-screen">
               <Navbar />
               <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
