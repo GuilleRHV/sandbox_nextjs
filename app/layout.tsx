@@ -2,15 +2,14 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-import { SessionProvider } from "next-auth/react";
 import { Providers } from "./providers";
-
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { LateralNavbar } from "@/components/LateralNavbar";
 import Provider from "@/components/Provider";
-import { useSession, signIn, signOut } from "next-auth/react";
+import SessionLogger from "@/components/SessionLogger";  // Importa el componente
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -36,38 +35,37 @@ export default function RootLayout({
 }) {
   return (
     <Provider>
-    <html suppressHydrationWarning lang="en">
-      <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              <LateralNavbar/>
-              {children}
-              
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Creado con</span>
-                <p className="text-primary">Nextjs, NextUI</p>
-              </Link>
-            </footer>
-          </div>
-        </Providers>
-      </body>
-    </html>
+      <html suppressHydrationWarning lang="en">
+        <head />
+        <body
+          className={clsx(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable,
+          )}
+        >
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <SessionLogger />  {/* Coloca el componente de registro de sesión aquí */}
+            <div className="relative flex flex-col h-screen">
+              <Navbar />
+              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+                <LateralNavbar />
+                {children}
+              </main>
+              <footer className="w-full flex items-center justify-center py-3">
+                <Link
+                  isExternal
+                  className="flex items-center gap-1 text-current"
+                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
+                  title="nextui.org homepage"
+                >
+                  <span className="text-default-600">Creado con</span>
+                  <p className="text-primary">Nextjs, NextUI</p>
+                </Link>
+              </footer>
+            </div>
+          </Providers>
+        </body>
+      </html>
     </Provider>
   );
 }
