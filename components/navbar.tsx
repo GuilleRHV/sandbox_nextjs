@@ -107,13 +107,14 @@ export const Navbar = () => {
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
 
-        <User   
-          name={session?.user?.name}         
-          description={session?.user?.email} 
-          avatarProps={{
-            src: session?.user?.image      
-          }}
-        />
+        <User
+  name={session?.user?.name ?? ''}         // Proporciona una cadena vacía si es null o undefined
+  description={session?.user?.email ?? ''}
+  avatarProps={{
+    src: session?.user?.image ?? ''        // Proporciona una cadena vacía si es null o undefined
+  }}
+/>
+
         
           
           
