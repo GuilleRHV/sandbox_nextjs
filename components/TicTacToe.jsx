@@ -40,7 +40,7 @@ function TicTacToe() {
 
     const updateTable = (index) => {
         if (tablegame[index] || isFinished) return; // Evita que se cambie una celda ya ocupada o si el juego ha terminado
-        console.log("Connection String:", process.env.NEXT_PUBLIC_POSTGRES_URL);
+        //console.log("Connection String:", process.env.NEXT_PUBLIC_POSTGRES_URL);
         const newBoard = [...tablegame];
         newBoard[index] = turn;
         setTable(newBoard);
